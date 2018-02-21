@@ -1,9 +1,10 @@
+#This is V1
 FROM java:8-jre
 
 ENV CATALINA_HOME /usr/local/tomcat
 ENV PATH $CATALINA_HOME/bin:$PATH
 
-RUN mkdir -p "$CATALINA_HOME"
+RUN mkdir -p "$CATALINA_HOME" \
     && apt-get update
 
 WORKDIR $CATALINA_HOME
@@ -24,7 +25,7 @@ WORKDIR $CATALINA_HOME
 #    F7DA48BB64BCB84ECBA7EE6935CD23C10D498E23
 
 ENV TOMCAT_MAJOR 8
-ENV TOMCAT_VERSION 8.0.47
+ENV TOMCAT_VERSION 8.5.28
 ENV TOMCAT_TGZ_URL https://www.apache.org/dist/tomcat/tomcat-$TOMCAT_MAJOR/v$TOMCAT_VERSION/bin/apache-tomcat-$TOMCAT_VERSION.tar.gz
 
 RUN set -x \
